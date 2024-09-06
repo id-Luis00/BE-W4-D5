@@ -16,4 +16,7 @@ public interface PostazioneRepository extends JpaRepository<Postazione, UUID> {
     @Query("SELECT p FROM Postazione p WHERE p.typePostazione = :typePostazione")
     List<Postazione> findPostazioniByTypePostazione(@Param("typePostazione") TypePostazione typePostazione);
 
+    @Query("SELECT p FROM Postazione p JOIN p.edificio e WHERE e.citta = :citta")
+    List<Postazione> findPostazioneByCitta(@Param("citta") String citta);
+
 }
