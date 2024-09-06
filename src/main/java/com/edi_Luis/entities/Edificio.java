@@ -20,19 +20,22 @@ public class Edificio {
 
     private String name;
     private String address;
+    private String citta;
 
 
     @OneToMany(mappedBy = "edificio", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Postazione> postazioni;
 
-    public Edificio(String name, String address) {
+    public Edificio(String name, String address, String citta) {
         this.name = name;
         this.address = address;
+        this.citta = citta;
     }
 
-    public Edificio(String name, String address, List<Postazione> postazioni) {
+    public Edificio(String name, String address, String citta, List<Postazione> postazioni) {
         this.name = name;
         this.address = address;
+        this.citta = citta;
         this.postazioni = postazioni;
     }
 }

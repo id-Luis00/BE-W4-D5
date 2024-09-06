@@ -14,9 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.util.UUID;
-
 @Slf4j
 @Component
 public class PrenotazioniRunner implements CommandLineRunner {
@@ -62,39 +59,42 @@ public class PrenotazioniRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        // -------------- prova salvataggio utenti
 
-        System.out.println("ciao " + utente1.getUsername());
-        System.out.println("ciao " + utente2.getUsername());
-        System.out.println("ciao " + utente3.getUsername());
-
-        Utente utente = new Utente("mitchel.turner", "Tayna Gleason Sr.", "daje.roma@gmail.magica");
+        // System.out.println("ciao " + utente1.getUsername());
+        // System.out.println("ciao " + utente2.getUsername());
+        // System.out.println("ciao " + utente3.getUsername());
 
         // utenteService.saveUtente(utente1);
         // utenteService.saveUtente(utente2);
         // utenteService.saveUtente(utente3);
-        // try {
-        //     utenteService.saveUtente(utente);
-        // } catch (ValidationException ex) {
-        //     log.error(ex.getMessage());
-        // }
 
-        // vuoi prenotare una postazione?
-        // creare nuovo utente (ho già degli utenti) e salvo l'utente
-        // inserire quale postazione vuoi prenotare
-
-        // Utente utenteCercato = utenteService.findById(UUID.fromString("9d902-cadd-4505-a454-21ccb955b75e"));
-        // System.out.println(utenteCercato.getFull_name() + " trovato con successo!");
+        // -------------- prova salvataggio edifici
 
         // edificioService.salvaEdificio(edificio1);
         // edificioService.salvaEdificio(edificio2);
         // edificioService.salvaEdificio(edificio3);
 
-        //   postazioneService.savePostazione(postazione1, UUID.fromString("65bef401-5177-475c-92d4-5e60d3a19e41"));
-        //   postazioneService.savePostazione(postazione2, UUID.fromString("65bef401-5177-475c-92d4-5e60d3a19e41"));
+        // -------------- prova salvataggio postazioni
 
-        prenotazioneService.saveNewPrenotazione(
-                UUID.fromString("e6452124-2d61-4f36-a7f5-6c6997aba0ea"),
-                UUID.fromString("8e699dd0-f9d7-4b66-80a3-143027953df7"),
-                LocalDate.of(2024, 9, 7));
+        // postazioneService.savePostazione(postazione1, UUID.fromString("66b73434-4464-4128-94fa-fc19dbc0c9fb"));
+        // postazioneService.savePostazione(postazione2, UUID.fromString("c2ada86e-f831-4e85-b169-dbc9042fb2a4"));
+
+        // -------------- prova salvataggio prenotazioni
+
+        // prenotazioneService.saveNewPrenotazione(idUtente, idPostazione, dataPrenotazione);
+
+        //try {
+
+        //    prenotazioneService.saveNewPrenotazione(
+        //            UUID.fromString("ce60c85a-7844-4911-8926-c161bae03446"),
+        //            UUID.fromString("e571d169-4df0-439c-b082-18bccdb70618"),
+        //            LocalDate.of(2024, 9, 7));
+        //} catch (Exception ex) {
+        //    log.info(ex.getMessage());
+        //}
+
+        // System.out.println(postazioneService.findByType(TypePostazione.OPEN_SPACE));
+        // System.out.println(postazioneService.findByType(TypePostazione.PRIVATO));
     }
 }

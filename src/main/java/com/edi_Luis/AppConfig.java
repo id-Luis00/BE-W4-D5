@@ -35,17 +35,17 @@ public class AppConfig {
 
     @Bean
     public Edificio edificio1() {
-        return new Edificio("edificio A", "Viale Italia 86");
+        return new Edificio("edificio A", "Viale Italia 86", "Ladispoli");
     }
 
     @Bean
     public Edificio edificio2() {
-        return new Edificio("edificio B", "Via del Corso 10");
+        return new Edificio("edificio B", "Via del Corso 10", "Roma");
     }
 
     @Bean
     public Edificio edificio3() {
-        return new Edificio("edificio C", "Via Ancona 13b");
+        return new Edificio("edificio C", "Via Ancona 13b", "Ladispoli");
     }
 
     @Bean
