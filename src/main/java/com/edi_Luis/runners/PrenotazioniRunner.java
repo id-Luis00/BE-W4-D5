@@ -94,9 +94,14 @@ public class PrenotazioniRunner implements CommandLineRunner {
         //    log.info(ex.getMessage());
         //}
 
+        // prova query 1
+
         // System.out.println(postazioneService.findByType(TypePostazione.OPEN_SPACE));
         // System.out.println(postazioneService.findByType(TypePostazione.PRIVATO));
 
-        System.out.println(postazioneService.findByCity("Roma"));
+        // prova query 2
+
+        // List<Postazione> postazioniTrovate = postazioneService.findByCity("Ladispoli");
+        // postazioniTrovate.forEach(System.out::println);
     }
 }
