@@ -12,6 +12,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 public class Utente {
+    
     @Id
     @GeneratedValue
     @Setter(AccessLevel.NONE)

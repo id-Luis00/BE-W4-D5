@@ -31,4 +31,18 @@ public class Postazione {
     @OneToMany(mappedBy = "postazione", cascade = CascadeType.ALL)
     private List<Prenotazione> prenotazioni;
 
+    public Postazione(String description, TypePostazione typePostazione, String max_sits, Edificio edificio) {
+        this.description = description;
+        this.typePostazione = typePostazione;
+        this.max_sits = max_sits;
+        this.edificio = edificio;
+    }
+
+    public Postazione(String description, TypePostazione typePostazione, String max_sits, Edificio edificio, List<Prenotazione> prenotazioni) {
+        this.description = description;
+        this.typePostazione = typePostazione;
+        this.max_sits = max_sits;
+        this.edificio = edificio;
+        this.prenotazioni = prenotazioni;
+    }
 }

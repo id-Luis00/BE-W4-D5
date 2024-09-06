@@ -24,4 +24,15 @@ public class Edificio {
 
     @OneToMany(mappedBy = "edificio", cascade = CascadeType.ALL)
     private List<Postazione> postazioni;
+
+    public Edificio(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public Edificio(String name, String address, List<Postazione> postazioni) {
+        this.name = name;
+        this.address = address;
+        this.postazioni = postazioni;
+    }
 }
