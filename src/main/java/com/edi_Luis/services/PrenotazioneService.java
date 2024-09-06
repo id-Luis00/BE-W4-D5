@@ -28,36 +28,21 @@ public class PrenotazioneService {
     Scanner scanner = new Scanner(System.in);
 
 
-    public void savePrenotazione() {
-        // chi vuole prenotare?
-        // inserisci l'id dell'utente che vuole prenotare
-        System.out.println("Inserisci l'id utente che vuole prenotare: ");
-        String idUtente = scanner.nextLine();
-        Utente utenteTrovato = utenteService.findById(UUID.fromString(idUtente));
+    public void saveNewPrenotazione(UUID idUtente, UUID idPostazione, LocalDate dataPrenotazione) {
 
-        // quale postazione vuole prenotare?
-        // stampa di tutte le postazioni
-        // List<Postazione> postazioniTrovate = postazioneService.findAllPostazioni();
-        // postazioniTrovate.forEach(System.out::println);
+        Utente utenteFound = utenteService.findById(idUtente);
+        Postazione postazioneFound = postazioneService.findById(idPostazione);
 
-        for (Postazione postazione : postazioneService.findAllPostazioni()) {
-            System.out.println(postazione);
+
+        if (!prenotazioneRepository.checkIfAlreadyBooked(dataPrenotazione, idUtente)) {
+            Prenotazione prenotazione = new Prenotazione(dataPrenotazione, postazioneFound, utenteFound);
+            prenotazioneRepository.save(prenotazione);
+            log.info("Prenotazione effettutata con successo!\n id della prenotazione: {}", prenotazione.getId());
+        } else {
+            throw new RuntimeException("Hai già prenotato per quella data! ");
         }
 
-        // inserisci la postazione che vuoi occupare
-        System.out.println("Inserisci l'id della postazione scelta: ");
-        String idPostazione = scanner.nextLine();
-        Postazione postazioneScelta = postazioneService.findById(UUID.fromString(idPostazione));
-
-        Prenotazione nuovaPrenotazione = new Prenotazione(LocalDate.of(
-                LocalDate.now().getYear(),
-                LocalDate.now().getMonthValue(),
-                LocalDate.now().getDayOfMonth()),
-                postazioneScelta,
-                utenteTrovato);
-
-        prenotazioneRepository.save(nuovaPrenotazione);
-
     }
+
 
 }
