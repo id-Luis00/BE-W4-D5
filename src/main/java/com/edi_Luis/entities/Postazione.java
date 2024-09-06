@@ -3,13 +3,16 @@ package com.edi_Luis.entities;
 
 import com.edi_Luis.enums.TypePostazione;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 import java.util.UUID;
 
 @Data
-@ToString
+
 @NoArgsConstructor
 @Entity
 public class Postazione {
@@ -44,5 +47,17 @@ public class Postazione {
         this.max_sits = max_sits;
         this.edificio = edificio;
         this.prenotazioni = prenotazioni;
+    }
+
+    @Override
+    public String toString() {
+        return "Postazione{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", typePostazione=" + typePostazione +
+                ", max_sits='" + max_sits + '\'' +
+                //", prenotazioni=" + prenotazioni +
+                //", edificio=" + edificio +
+                '}';
     }
 }

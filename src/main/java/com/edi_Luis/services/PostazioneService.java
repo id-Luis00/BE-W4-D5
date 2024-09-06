@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -34,5 +35,14 @@ public class PostazioneService {
         }
 
     }
+
+    public List<Postazione> findAllPostazioni() {
+        return postazioneRepository.findAll();
+    }
+
+    public Postazione findById(UUID id) {
+        return postazioneRepository.findById(id).orElseThrow(() -> new NotFoundException("Postazione non trovata!!!\n"));
+    }
+
 
 }

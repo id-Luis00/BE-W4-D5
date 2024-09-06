@@ -14,8 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
-
 @Slf4j
 @Component
 public class PrenotazioniRunner implements CommandLineRunner {
@@ -88,7 +86,9 @@ public class PrenotazioniRunner implements CommandLineRunner {
         // edificioService.salvaEdificio(edificio2);
         // edificioService.salvaEdificio(edificio3);
 
-        postazioneService.savePostazione(postazione1, UUID.fromString("65bef401-5177-475c-92d4-5e60d3a19e41"));
-        postazioneService.savePostazione(postazione2, UUID.fromString("65bef401-5177-475c-92d4-5e60d3a19e41"));
+        //   postazioneService.savePostazione(postazione1, UUID.fromString("65bef401-5177-475c-92d4-5e60d3a19e41"));
+        //   postazioneService.savePostazione(postazione2, UUID.fromString("65bef401-5177-475c-92d4-5e60d3a19e41"));
+
+        prenotazioneService.savePrenotazione();
     }
 }

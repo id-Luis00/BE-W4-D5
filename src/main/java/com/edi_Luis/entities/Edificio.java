@@ -22,7 +22,7 @@ public class Edificio {
     private String address;
 
 
-    @OneToMany(mappedBy = "edificio", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "edificio", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Postazione> postazioni;
 
     public Edificio(String name, String address) {
